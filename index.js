@@ -90,6 +90,8 @@ module.exports = function(sails) {
           // Reload helpers
           sails.hooks.helpers.reload(function() {
 
+            //Reset the ORM models to prevent reload problems.
+            sails.hooks.orm.models = {};
             // Wait for the ORM to reload
             sails.hooks.orm.reload(function() {
 
